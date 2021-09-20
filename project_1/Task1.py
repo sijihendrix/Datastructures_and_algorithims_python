@@ -21,7 +21,7 @@ Print a message:
 
 # print(calls, texts)
 
-def retrieve_text_details(texts, calls):
+def number_of_uniq_telelphones(texts, calls):
 
     count =  0
     numbers = {}
@@ -45,4 +45,4 @@ def retrieve_text_details(texts, calls):
     return count
 
 
-print(retrieve_text_details(texts, calls) )
+print(number_of_uniq_telelphones(texts, calls) )
