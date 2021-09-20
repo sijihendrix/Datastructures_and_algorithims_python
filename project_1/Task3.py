@@ -4,11 +4,11 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-with open('texts.csv', 'r') as f:
+with open('project_1/texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('calls.csv', 'r') as f:
+with open('project_1/calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -43,3 +43,43 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+ 
+ 
+def get_all_banglore_numbers(calls):
+  called_by_banglore = []
+  for call in calls:
+    if '(080)' in call[0]:
+      # print(call[0])
+      called_by_banglore.append(call[1])
+  
+  return called_by_banglore
+
+def get_area_code(arr):
+  codes =  {}
+  for i in range(len(arr)):
+    if '(' in arr[i]:
+      bracket_position = arr[i].find(')') + 1
+      if arr[i][0: bracket_position] in codes:
+        return
+      codes.update({arr[i][0:bracket_position]: 1,})
+      if arr[i][0:3] == "140":
+          if arr[i][0:3] in codes:
+            return
+      # codes.update({arr[i][0:3]: 1})
+    elif '(' not in arr[i]:
+      mobile_prefix = arr[i][0:4]
+      if mobile_prefix in codes:
+          return
+      codes.update({mobile_prefix: 1})
+      print(codes)
+
+    for k in codes.keys():
+      print(k)
+  return codes.key()
+
+
+codes =    get_area_code(get_all_banglore_numbers(calls))
+
+print(f"The numbers called by people in Bangalore have codes", codes)
+
+# TODO fix mess above. Simplify it
