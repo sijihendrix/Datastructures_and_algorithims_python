@@ -26,15 +26,20 @@ The list of numbers should be print out one per line in lexicographic order with
 """
 
  
-def get_all_telemarketers(calls):
+def get_all_telemarketers(calls, texts):
   telemarketers = []
   for call in calls:
     if (call[0][0:3] == '140'):
-        if call[0] in telemarketers:
+        if call[0] in telemarketers and call[1] not in telemarketers:
             continue
         telemarketers.append(call[0])
+  for text in texts:
+    if text[0][0:3] == '140':
+        if text[0] in telemarketers or call[1] in telemarketers:
+            telemarketers.remove(text[0])
   
   return telemarketers
 
 
-print(get_all_telemarketers(calls))
+print(*sorted(get_all_telemarketers(calls, texts)), sep='\n')
+# print(get_all_telemarketers(calls)) 
