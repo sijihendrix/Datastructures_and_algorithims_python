@@ -69,3 +69,7 @@ Problem statement: Define a procedure, days_between_dates, that takes the dates 
     while date_1 is before date_2:
         date_1 =  advance to next day
         days += 1
+
+## Don't optimize prematurely
+
+- Develop incrementally and test as you go.
