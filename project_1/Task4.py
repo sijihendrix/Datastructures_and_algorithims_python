@@ -29,6 +29,7 @@ The list of numbers should be print out one per line in lexicographic order with
 def get_all_telemarketers(calls, texts):
   telemarketers = []
   for call in calls:
+    #perhaps i thought, the previous information from the last task, that the telemarketers' numbers start with 140. Perhaps I was wrong. 
     if (call[0][0:3] == '140'):
         if call[0] in telemarketers and call[1] not in telemarketers:
             continue
@@ -40,6 +41,6 @@ def get_all_telemarketers(calls, texts):
   
   return telemarketers
 
-
+print("The numbers called by people in Bangalore have codes:")
 print(*sorted(get_all_telemarketers(calls, texts)), sep='\n')
 # print(get_all_telemarketers(calls)) 
