@@ -17,6 +17,8 @@ def nextDay(year, month, day):
             return year, month + 1, 1
         
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
+    assert not isHigherDate(year2, month2, day2, year1, month1, day1)
+
     days = 0
     while isHigherDate(year1, month1, day1, year2, month2, day2) == True:
         year1,month1,day1 = nextDay(year1,month1,day1)
